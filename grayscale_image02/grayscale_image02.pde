@@ -1,7 +1,6 @@
-//Find average value of a pixel.
+//Find number of pixel's with value higher than 127
 
 PImage dogImage;
-float averValue;
 
 void setup() {
   size(500, 424);
@@ -11,7 +10,7 @@ void setup() {
 void draw() {
   loadPixels();
   
-  int totalValue = 0;
+  int totalPix = 0;
 
   dogImage.loadPixels();
   for (int y = 0; y < height; y++) {
@@ -22,13 +21,14 @@ void draw() {
 
       pixels[loc] = color(c);
       
-      totalValue += c;
-      
+      if (c >= 127) {
+        pixels[loc] = color(0);
+        totalPix++;
+      }
+
     }
-      averValue = totalValue / (width*height);    
   }
+  println(totalPix);
   updatePixels();
-  fill(averValue);
-  ellipse(width/2, height/2, 100,100);
 }
 
