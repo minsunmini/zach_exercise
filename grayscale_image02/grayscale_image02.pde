@@ -21,8 +21,8 @@ void draw() {
 
       pixels[loc] = color(c);
       
-      if (c >= 127) {
-        pixels[loc] = color(0);
+      if (c >= 200) {
+        //pixels[loc] = color(0);
         totalPix++;
       }
 
